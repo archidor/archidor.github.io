@@ -2,7 +2,7 @@ body {
     font-family: 'SourceCodeHanJP', 'Ubuntu', sans-serif;
     color: black;
     margin: auto;
-    width: 30em;
+    width: 40em;
 }
 
 #page-title {
@@ -36,4 +36,7 @@ a {
 
 .blog-post {
     padding-left: 1em;
+		font-weight: 100;
+		line-height: 1.8;
+		letter-spacing: 1.2px;
 }
