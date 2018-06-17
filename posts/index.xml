@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on zou</title>
+    <link>https://archidor.github.io/posts/</link>
+    <description>Recent content in Posts on zou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Jun 2018 12:04:14 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jun 2018 12:04:14 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://archidor.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Start</title>
-      <link>http://example.org/posts/start/</link>
-      <pubDate>Sun, 17 Jun 2018 12:04:14 +0200</pubDate>
+      <title>必要なもの</title>
+      <link>https://archidor.github.io/posts/0614/</link>
+      <pubDate>Thu, 14 Jun 2018 12:04:14 +0200</pubDate>
       
-      <guid>http://example.org/posts/start/</guid>
-      <description></description>
+      <guid>https://archidor.github.io/posts/0614/</guid>
+      <description>アントワープの古本屋でベルギー詩のアンソロジーを購入したときの覚書。
+1930年代にジェオ・ノルジュが、フランツ・ヘレンスの「詩は必要なのか」という問いに、「ならば人間は必要なのか」と応答した（これはある詩人の一節から取られたものらしいのだが、誰のものかがわからない）。ヘレンスが発したこの問いは、1930年代当時の、詩の読者数の減少を踏まえてのものだが、いまや不要論は詩どころか文学、人文学全体に行き渡りすぎて、染み込んでいるくらい。一方で、後半の「人間は必要なのか」という問い＝応答自体も、人間中心主義的な色合いが濃く、今なら環境論の観点から、不要だとはっきり言えてしまう。ただ、ノルジュは、詩も、人間も必要ないとなった場合に備えて、次のように書いている。
+ 必要ないなら、神のご加護を。
+ 読み間違えているかもしれないが、詩も人間もいなければ、それは神の領域だ、と理解した。非人間主義に見られる神学的傾向。アポリネールが「ただ宗教のみが新しい」と言ったことを思い出す。</description>
+    </item>
+    
+    <item>
+      <title>交換原理</title>
+      <link>https://archidor.github.io/posts/0610/</link>
+      <pubDate>Sun, 10 Jun 2018 12:04:14 +0200</pubDate>
+      
+      <guid>https://archidor.github.io/posts/0610/</guid>
+      <description>ある精神分析家曰く「犬に噛まれたので歯医者に行った」という統合失調症患者の心には「噛む」主語を犬と自分で混同（誤謬）→噛む人は道徳的に悪（正常）→道徳的に悪い歯は身体的にも悪（誤謬）→歯医者に行く（正常）という交互の推論が働くそうだ。必ず交互の論理が働く理由がまだよくわからないが、若干狂気めいた文章には、正常と誤謬の論理が混在しているというのは、わかる気がする。</description>
     </item>
     
   </channel>

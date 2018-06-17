@@ -1,11 +1,12 @@
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'SourceCodeHanJP', 'Ubuntu', sans-serif;
     color: black;
     margin: auto;
-    max-width: 50em;
+    width: 30em;
 }
 
 #page-title {
+		margin-top: 10em;
     text-align: center;
 }
 
