@@ -17,7 +17,7 @@
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://archidor.github.io/posts/2019-04-24-twitter/</guid>
-      <description> 昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。 このサイトの象イラストを押すと疑似タイムラインがでてきます。
+      <description> 昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。 このサイトの吹き出しを押すと疑似タイムラインがでてきます。
  使うもの
  yad（GUIダイアログ）  実際の手順
  yadを呼び出す 文字列を入力 ファイル（tweet.html）に入力 ひたすら追加される   やり方 tweet.htmlを作る このサイトはhugoのテーマ&amp;rdquo;elephants&amp;rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが作れません。 words.htmlに直接文字列を挟み込んで、markdownifyでレンダリングしていきます。具体的な手順は以下の通り、
@@ -29,7 +29,7 @@ bindsym $mod+period exec --no-startup-id &amp;quot;~/.bin/tweetyad&amp;quot;  �
     </item>
     
     <item>
-      <title>日毎に文字列をひたすら追加する</title>
+      <title>日毎に文字列を追加する</title>
       <link>https://archidor.github.io/posts/2019-04-23/</link>
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
