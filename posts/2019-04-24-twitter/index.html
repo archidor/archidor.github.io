@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+        <title>自分ツイッターをつくる</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+    </head>
+    <body>
+
+<div class="hidden_box">
+    <label for="label1">
+	<div id="elbody">
+	<div id="face"></div>
+  <div id="feet"></div>
+</div>	
+		</label>
+    <input type="checkbox" id="label1"/>
+    <div class="hidden_show">
+           
+			
+		<ul>
+<li>ポール・ギャルドの『アクセント』という本の改訂版（2013年）を入手。フランス現代詩は韻律学よりもアクセントに注目した方がリズムがわかりやすい。 <span class=timestamp>2019-04-24 14:58:17</span></li>
+<li>この象のアイコンはCodepenのCSSから借りてきたのですが、Codepenで&rdquo;elephant&rdquo;と検索したら大量に出てきて、皆象が好きなんだなぁと思いました。 <span class=timestamp>2019-04-24 14:22:46</span></li>
+</ul>
+
+		
+    </div>
+</div>
+
+
+
+<section class="blog-post">
+	<a id="back" href="/">&#8592;</a>
+    <h1>自分ツイッターをつくる</h1>
+    <div class="blog-post-subheader">
+        April 24, 2019
+    </div>
+
+    <div class="blog-post-content">
+        
+
+<p>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。
+このサイトの象イラストを押すと疑似タイムラインがでてきます。</p>
+
+<ul>
+<li><p>使うもの</p>
+
+<ul>
+<li>yad（GUIダイアログ）</li>
+</ul></li>
+
+<li><p>実際の手順</p>
+
+<ol>
+<li>yadを呼び出す</li>
+<li>文字列を入力</li>
+<li>ファイル（tweet.html）に入力</li>
+<li>ひたすら追加される</li>
+</ol></li>
+</ul>
+
+<h4 id="やり方">やり方</h4>
+
+<h5 id="tweet-htmlを作る">tweet.htmlを作る</h5>
+
+<p>このサイトはhugoのテーマ&rdquo;elephants&rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが作れません。
+<code>words.html</code>に直接文字列を挟み込んで、markdownifyでレンダリングしていきます。具体的な手順は以下の通り、</p>
+
+<ol>
+<li>テーマから<code>./layouts/partials/</code>に飛んで、<code>tweet.html</code>を作成</li>
+<li>空ファイルだと機能しないので、<code>tweet.html</code>の最初の1行目に<code>&lt;!-- 1st line --&gt;</code>などコメントアウトで適当な文字を入れておく</li>
+<li><code>header.html</code>に<code>{{ partial &quot;tweet.html&quot; | print | markdownify }}</code>の一行を追加</li>
+</ol>
+
+<h5 id="tweetyadを作る">tweetyadを作る</h5>
+
+<p>次に、シェルスクリプト<code>tweetyad</code>を作ります。yadのオプションは色々あるので<a href="https://sourceforge.net/p/yad-dialog/wiki/Examples/">こちら</a>を参照してください。</p>
+
+<pre><code class="language-sh">#!/bin/sh
+
+NOTES=$(yad --width=1500 --posy=24 --posx=250 --entry --entry-label=&quot;Tweet&quot; --no-buttons --close-on-unfocus)
+FILE=$HOME/[...]/tweet.html
+TIME=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)
+
+sed -i -e &quot;1i-\ $NOTES \($TIME\)&quot; $FILE
+
+</code></pre>
+
+<p>完成した<code>tweetyad</code>を<code>$HOME/.bin/</code>などパスの通ったディレクトリに置いて、<code>chmod +x</code>で権限を変更。ショートカットキーで<code>tweetyad</code>が実行されるように登録。
+i3wmを使っているのでconfigファイルに、</p>
+
+<pre><code>bindsym $mod+period exec --no-startup-id &quot;~/.bin/tweetyad&quot;
+</code></pre>
+
+<p>と記入して、Control+ピリオドでツイートができるようになりました。</p>
+
+<p>今回は文字列を先頭行に入れたいので、<code>&gt;&gt;</code>ではなく<code>sed</code>を使いました。<code>sed</code>を使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。また、<code>yad</code>に入力された文字列を<code>case</code>で分岐させれば、ファイル編集、アップロード等の動作が一括でできます。</p>
+
+<h5 id="今後の課題">今後の課題</h5>
+
+<ul>
+<li>スマホ投稿</li>
+<li>画像・動画貼り付け</li>
+<li>リツイート機能（？）</li>
+</ul>
+
+    </div>
+</section>
+	<a id="back" href="/">&#8592;</a>
+
+
+<div class="modal_wrap">
+<input id="trigger" type="checkbox">
+	<div class="modal_overlay">
+		<label for="trigger" class="modal_trigger"></label>
+		<div class="modal_content">
+			<label for="trigger" class="close_button">✖️</label>
+				<p><strong>archidor(@roaming_south)</strong></p>
+
+<p>自分の備忘録をつけるためにはじめました。</p>
+
+<p>ツイッターはついつい長居してしまうので、最近は控えめにしています。</p>
+
+<p>気付いたことなどあれば、遠慮なく<a href="mailto:roamingsouth@gmail.com">こちら</a>まで連絡ください。</p>
+
+<hr />
+
+<ul>
+<li>参考サイト
+
+<ul>
+<li>GoHugo: <a href="https://gohugo.io/">https://gohugo.io/</a></li>
+<li>Theme: <a href="https://github.com/meibenny/elephants.git">https://github.com/meibenny/elephants.git</a></li>
+<li>Elephant: <a href="https://codepen.io/monstersaurous/pen/BCnHj">https://codepen.io/monstersaurous/pen/BCnHj</a></li>
+<li>Button: <a href="https://codepen.io/Kuzlog/pen/XVOaPN/">https://codepen.io/Kuzlog/pen/XVOaPN/</a></li>
+</ul></li>
+</ul>
+
+		</div>
+	</div>
+</div>
+<label for="trigger" class="open_button">about this site</label>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</body>
+</html>
+
+
+

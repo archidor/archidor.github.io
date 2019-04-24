@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2019-04-24-twitter/</loc>
+    <lastmod>2019-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2019-04-23/</loc>
+    <lastmod>2019-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2019-04-21/</loc>
+    <lastmod>2019-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2018-06-18/</loc>
+    <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2018-06-10/</loc>
+    <lastmod>2018-06-10T12:04:14+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/2018-06-08/</loc>
+    <lastmod>2018-06-08T12:04:14+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/posts/</loc>
+    <lastmod>2019-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://archidor.github.io/</loc>
+    <lastmod>2019-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
