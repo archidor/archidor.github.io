@@ -56,7 +56,7 @@
 <p>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。
 このサイト上部の吹き出しを押すと疑似タイムラインがでてきます。</p>
 
-<p>リツイートもリプライもいいねも、○○さんがいいねしました機能も、プロモーションツイートもブロック機能もありませんが、穏やかな気持ちでつぶやくことができます。</p>
+<p>リツイートもリプライもいいねも、○○さんがいいねしました機能も、プロモーションツイートもブロック機能もありませんが、穏やかな気持ちでひっそりとつぶやくことができます。</p>
 
 <ul>
 <li><p>使うもの</p>
@@ -70,7 +70,7 @@
 <ol>
 <li>yadを呼び出す</li>
 <li>文字列を入力</li>
-<li>ファイル（tweet.html）に入力</li>
+<li>ファイル（<code>tweet.html</code>）に入力</li>
 <li>ひたすら追加される</li>
 </ol></li>
 </ul>
@@ -79,8 +79,8 @@
 
 <h5 id="tweet-htmlを作る">tweet.htmlを作る</h5>
 
-<p>このサイトはhugoのテーマ&rdquo;elephants&rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが作れません。
-<code>words.html</code>に直接文字列を挟み込んで、markdownifyでレンダリングしていきます。具体的な手順は以下の通り、</p>
+<p>このサイトはhugoのテーマ&rdquo;elephants&rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが用意されていません。
+そこで<code>words.html</code>に直接文字列を挟み込んで、<code>markdownify</code>でレンダリングしていくことにします。具体的な手順は以下の通り、</p>
 
 <ol>
 <li>テーマから<code>./layouts/partials/</code>に飛んで、<code>tweet.html</code>を作成</li>
@@ -90,7 +90,7 @@
 
 <h5 id="tweetyadを作る">tweetyadを作る</h5>
 
-<p>次に、シェルスクリプト<code>tweetyad</code>を作ります。yadのオプションは色々あるので<a href="https://sourceforge.net/p/yad-dialog/wiki/Examples/">こちら</a>を参照してください。</p>
+<p>次に、シェルスクリプト<code>tweetyad</code>を作ります。<code>yad</code>のオプションは色々あるので<a href="https://sourceforge.net/p/yad-dialog/wiki/Examples/">こちら</a>を参照してください。</p>
 
 <pre><code class="language-sh">#!/bin/sh
 

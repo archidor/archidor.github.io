@@ -18,10 +18,10 @@
       
       <guid>https://archidor.github.io/posts/2019-04-24-twitter/</guid>
       <description>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。 このサイト上部の吹き出しを押すと疑似タイムラインがでてきます。
-リツイートもリプライもいいねも、○○さんがいいねしました機能も、プロモーションツイートもブロック機能もありませんが、穏やかな気持ちでつぶやくことができます。
+リツイートもリプライもいいねも、○○さんがいいねしました機能も、プロモーションツイートもブロック機能もありませんが、穏やかな気持ちでひっそりとつぶやくことができます。
  使うもの
  yad（GUIダイアログ）  実際の手順
- yadを呼び出す 文字列を入力 ファイル（tweet.html）に入力 ひたすら追加される   やり方 tweet.htmlを作る このサイトはhugoのテーマ&amp;rdquo;elephants&amp;rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが作れません。 words.htmlに直接文字列を挟み込んで、markdownifyでレンダリングしていきます。具体的な手順は以下の通り、
+ yadを呼び出す 文字列を入力 ファイル（tweet.html）に入力 ひたすら追加される   やり方 tweet.htmlを作る このサイトはhugoのテーマ&amp;rdquo;elephants&amp;rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが用意されていません。 そこでwords.htmlに直接文字列を挟み込んで、markdownifyでレンダリングしていくことにします。具体的な手順は以下の通り、
  テーマから./layouts/partials/に飛んで、tweet.htmlを作成 空ファイルだと機能しないので、tweet.htmlの最初の1行目に&amp;lt;!-- 1st line --&amp;gt;などコメントアウトで適当な文字を入れておく header.htmlに{{ partial &amp;quot;tweet.html&amp;quot; | print | markdownify }}の一行を追加  tweetyadを作る 次に、シェルスクリプトtweetyadを作ります。yadのオプションは色々あるのでこちらを参照してください。
 #!/bin/sh NOTES=$(yad --width=1500 --posy=24 --posx=250 --entry --entry-label=&amp;quot;Tweet&amp;quot; --no-buttons --close-on-unfocus) FILE=$HOME/[...]/tweet.html TIME=$(date &amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;) sed -i -e &amp;quot;1i-\ $NOTES \($TIME\)&amp;quot; $FILE  完成したtweetyadを$HOME/.bin/などパスの通ったディレクトリに置いて、chmod +xで権限を変更。ショートカットキーでtweetyadが実行されるように登録。 i3wmを使っているのでconfigファイルに、
 bindsym $mod+period exec --no-startup-id &amp;quot;~/.bin/tweetyad&amp;quot;  と記入して、Control+ピリオドでツイートができるようになりました。
