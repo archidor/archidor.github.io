@@ -81,11 +81,16 @@ pre {
 	font-color: #A9A9A9;
 }
 
+a#back {
+	text-decoration: none;
+	font-size: 18px;
+}
+
 /*全体*/
 .hidden_box {
     text-align: center;
 		font-family: Ubuntu;
-    margin: -3em 0 0 0 ;
+    margin: 0 0 0 0 ;
     padding: 0;
 }
 
