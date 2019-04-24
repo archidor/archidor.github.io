@@ -17,13 +17,14 @@
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://archidor.github.io/posts/2019-04-24-twitter/</guid>
-      <description>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加して簡易ツイッターにしてみました。 このサイトの象イラストを押すと疑似タイムラインがでてきます。
+      <description>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。 このサイトの象イラストを押すと疑似タイムラインがでてきます。
  使うもの
  yad（GUIダイアログ）  実際の手順
  yadを呼び出す 文字列を入力 ファイル（tweet.html）に入力 ひたすら追加される   やり方 tweet.htmlを作る このサイトはhugoのテーマ&amp;rdquo;elephants&amp;rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが作れません。 words.htmlに直接文字列を挟み込んで、markdownifyでレンダリングしていきます。具体的な手順は以下の通り、
  テーマから./layouts/partials/に飛んで、tweet.htmlを作成 空ファイルだと機能しないので、tweet.htmlの最初の1行目に&amp;lt;!-- 1st line --&amp;gt;などコメントアウトで適当な文字を入れておく header.htmlに{{ partial &amp;quot;tweet.html&amp;quot; | print | markdownify }}の一行を追加  tweetyadを作る 次に、シェルスクリプトtweetyadを作ります。yadのオプションは色々あるのでこちらを参照してください。
-#!/bin/sh NOTES=$(yad --width=1500 --posy=24 --posx=250 --entry --entry-label=&amp;quot;Tweet&amp;quot; --no-buttons --close-on-unfocus) FILE=$HOME/[...]/tweet.html TIME=$(date &amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;) sed -i -e &amp;quot;1i-\ $NOTES \($TIME\)&amp;quot; $FILE  完成したtweetyadを$HOME/.bin/などパスの通ったディレクトリに置いて、chmod +xで権限を変更。
-今回は先頭行に入れたいので、&amp;gt;&amp;gt;ではなくsedを使います。 sedを使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。</description>
+#!/bin/sh NOTES=$(yad --width=1500 --posy=24 --posx=250 --entry --entry-label=&amp;quot;Tweet&amp;quot; --no-buttons --close-on-unfocus) FILE=$HOME/[...]/tweet.html TIME=$(date &amp;quot;+%Y-%m-%d %H:%M:%S&amp;quot;) sed -i -e &amp;quot;1i-\ $NOTES \($TIME\)&amp;quot; $FILE  完成したtweetyadを$HOME/.bin/などパスの通ったディレクトリに置いて、chmod +xで権限を変更。ショートカットキーでtweetyadが実行されるように登録。 i3wmを使っているのでconfigファイルに、
+bindsym $mod+period exec --no-startup-id &amp;quot;~/.bin/tweetyad&amp;quot;  と記入して、Control+ピリオドでツイートができるようになりました。
+今回は文字列を先頭行に入れたいので、&amp;gt;&amp;gt;ではなくsedを使いました。sedを使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。また、yadに入力された文字列をcaseで分岐させれば、ファイル編集、アップロード等の動作が一括でできます。</description>
     </item>
     
     <item>

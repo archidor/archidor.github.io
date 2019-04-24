@@ -23,6 +23,7 @@
            
 			
 		<ul>
+<li>ポール・ギャルドの『アクセント』という本の改訂版（2013年）を入手。フランス現代詩は韻律学よりもアクセントに注目した方がリズムがわかりやすい。 <span class=timestamp>2019-04-24 14:58:17</span></li>
 <li>この象のアイコンはCodepenのCSSから借りてきたのですが、Codepenで&rdquo;elephant&rdquo;と検索したら大量に出てきて、皆象が好きなんだなぁと思いました。 <span class=timestamp>2019-04-24 14:22:46</span></li>
 </ul>
 
@@ -42,7 +43,7 @@
     <div class="blog-post-content">
         
 
-<p>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加して簡易ツイッターにしてみました。
+<p>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。
 このサイトの象イラストを押すと疑似タイムラインがでてきます。</p>
 
 <ul>
@@ -89,10 +90,15 @@ sed -i -e &quot;1i-\ $NOTES \($TIME\)&quot; $FILE
 
 </code></pre>
 
-<p>完成した<code>tweetyad</code>を<code>$HOME/.bin/</code>などパスの通ったディレクトリに置いて、<code>chmod +x</code>で権限を変更。</p>
+<p>完成した<code>tweetyad</code>を<code>$HOME/.bin/</code>などパスの通ったディレクトリに置いて、<code>chmod +x</code>で権限を変更。ショートカットキーで<code>tweetyad</code>が実行されるように登録。
+i3wmを使っているのでconfigファイルに、</p>
 
-<p>今回は先頭行に入れたいので、<code>&gt;&gt;</code>ではなく<code>sed</code>を使います。
-sedを使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。</p>
+<pre><code>bindsym $mod+period exec --no-startup-id &quot;~/.bin/tweetyad&quot;
+</code></pre>
+
+<p>と記入して、Control+ピリオドでツイートができるようになりました。</p>
+
+<p>今回は文字列を先頭行に入れたいので、<code>&gt;&gt;</code>ではなく<code>sed</code>を使いました。<code>sed</code>を使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。また、<code>yad</code>に入力された文字列を<code>case</code>で分岐させれば、ファイル編集、アップロード等の動作が一括でできます。</p>
 
     </div>
 </section>
@@ -105,7 +111,13 @@ sedを使えば、ツイ消しや修正も簡単にできます。日付や、�
 		<label for="trigger" class="modal_trigger"></label>
 		<div class="modal_content">
 			<label for="trigger" class="close_button">✖️</label>
-				archidorです。よろしくお願いします。</p>
+				<p><strong>archidor(@roaming_south)</strong></p>
+
+<p>自分の備忘録をつけるためにはじめました。</p>
+
+<p>ツイッターはついつい長居してしまうので、最近は控えめにしています。</p>
+
+<p>気付いたことなどあれば、遠慮なく<a href="mailto:roamingsouth@gmail.com">こちら</a>まで連絡ください。</p>
 
 <hr />
 
