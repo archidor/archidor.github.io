@@ -6,10 +6,25 @@
     <description>Recent content on zou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://archidor.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>登攀人生</title>
+      <link>https://archidor.github.io/posts/2019-04-27/</link>
+      <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://archidor.github.io/posts/2019-04-27/</guid>
+      <description>ルヴェルディの詩句で、La vie est une chose grave. Il faut gravir.（人生は重たいものだ。よじ登らなければならない。）というのがあります。
+ここにある音の反復を模倣して「人生はしんどい、辛抱だ」みたいに真似ようとしてみましたが、微妙でした。 そもそも克服する様を忍耐に移し替えるのも、文化的な違いがあるような気がします。
+最近、少し覚えだしたのは、子音語尾と母音語尾の対比という見分け方です。マルセル・コーエン（作家じゃない方）やマルグリット・デュラン（フェミニストじゃない方）の研究でかじったのですが、曰く子音語尾は「中断的」（suspensif）で、母音語尾は「結論的」（conclusif）らしく、民謡や流行歌から演説の域に至るまで様々な場面で観測ができるとのことです。まだアポリネールが考案した女性韻／男性韻の違いと区別がついていないのですが、もしこれに寄せて先の句を解釈したら、grave-gravirも両方子音で終わる中断的な効果を持っている、と言えるかもしれません。よじ登りきった後の開放的な母音の響きを期待しているようでもあります。
+シャルル・ペギーの『クリオ』にも登場する « Dans l&amp;rsquo;affreux cimetière. Frémit le nénuphar » というユゴーの詩句では、ネニュファーの「ファー」の響きが、その前の「アフルー」、「フレミ」からの[f]の流れを踏まえて、最後に、ファーっと広がっている、完全にダジャレですが、母音がシメ、というのはこの詩句でも言えるような気がします。
+もし、音を転写すのではなく、こういうsuspensifな効果を訳してみたらどうでしょうか。
+「人生は重たいもの。よじ登らねば。」
+う〜ん、風立ちぬ感。</description>
+    </item>
     
     <item>
       <title>自分ツイッターをつくる</title>
