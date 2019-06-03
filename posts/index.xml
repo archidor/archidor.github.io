@@ -17,15 +17,15 @@
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://archidor.github.io/posts/2019-06-03/</guid>
-      <description>書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、XDG_RUNTIME_DIRが設定されていない？なんだなんだそれは。んーとりあえず.bashrcにexportしてみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。
-パソコンは決して自由連想的に動かしてはいけないという教訓です。
-USB用の起動ディスクを持っていたおかげで、.bashrcの書き直しはスムーズにできましたが、その後もインストールはうまくいかず。 サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず。
-同じ境遇の人はいるかわかりませんが、インストール手順を備忘録がてら書いておきます。
- Linux Debian 10 (4.19.0-5-amd64)  ずっと以下のようなエラーが出ていました。
-==== AUTHENTICATING FOR org.freedesktop.policykit.exec === Authentication is needed to run `/usr/bin/apt-get&#39; as the super user Authenticating as: root Password: polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie ==== AUTHENTICATION FAILED ===  何度正しいパスワードを入力しても失敗、と出て先に進めません。 色々解決法を探した結果、以下の情報に助けられました。
+      <description>以下はパソコンを自由連想的に動かすと痛い目に合うという教訓です。
+ 書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、XDG_RUNTIME_DIRが設定されていない？なんだなんだそれは。んーとりあえず.bashrcにexportしてみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。
+ USB用の起動ディスクを持っていたおかげで、.bashrcの書き直しはスムーズにできましたが、その後もインストールはうまくいかず。 サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず、と信じて、格闘。1時間かかってようやく成功。
+同じ境遇の人がいるかは、わかりませんが、備忘録がてらAntidote 10のインストール手順を書いておきます。
+ 環境  Linux Debian 10 (4.19.0-5-amd64)   サイトからAntidote_10.2.1_F_6_Linux.tar.gz入手し解凍。Installation.bashをユーザ権限で実行。すると、以下のようなエラーが出てしまいました。
+==== AUTHENTICATING FOR org.freedesktop.policykit.exec === Authentication is needed to run `/usr/bin/apt-get&#39; as the super user Authenticating as: root Password: polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie ==== AUTHENTICATION FAILED ===  何度正しいパスワードを入力しても失敗、と出て先に進めません。root権限でも駄目でした。 色々解決法を探した結果、下記の情報に助けられました。
 https://qiita.com/cielavenir/items/bad3a62583acc088be9e
-よくわかっていないのですが、下記の通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。
-sudo apt-get -y install policykit-1-gnome /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;amp;  ありがたや。
+よくわかっていないのですが、ここに書いてある通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。
+sudo apt-get -y install policykit-1-gnome /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;amp;  ありがたやありがたや。
 ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</description>
     </item>
     

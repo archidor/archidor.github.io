@@ -66,20 +66,26 @@
     </div>
 
     <div class="blog-post-content">
-        <p>書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、<code>XDG_RUNTIME_DIR</code>が設定されていない？なんだなんだそれは。んーとりあえず.bashrcにexportしてみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。</p>
+        <p>以下はパソコンを自由連想的に動かすと痛い目に合うという教訓です。</p>
 
-<p>パソコンは決して自由連想的に動かしてはいけないという教訓です。</p>
+<blockquote>
+<p>書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、<code>XDG_RUNTIME_DIR</code>が設定されていない？なんだなんだそれは。んーとりあえず<code>.bashrc</code>に<code>export</code>してみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。</p>
+</blockquote>
 
 <p>USB用の起動ディスクを持っていたおかげで、.bashrcの書き直しはスムーズにできましたが、その後もインストールはうまくいかず。
-サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず。</p>
+サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず、と信じて、格闘。1時間かかってようやく成功。</p>
 
-<p>同じ境遇の人はいるかわかりませんが、インストール手順を備忘録がてら書いておきます。</p>
+<p>同じ境遇の人がいるかは、わかりませんが、備忘録がてらAntidote 10のインストール手順を書いておきます。</p>
+
+<ul>
+<li>環境
 
 <ul>
 <li>Linux Debian 10 (4.19.0-5-amd64)</li>
+</ul></li>
 </ul>
 
-<p>ずっと以下のようなエラーが出ていました。</p>
+<p>サイトからAntidote_10.2.1_F_6_Linux.tar.gz入手し解凍。<code>Installation.bash</code>をユーザ権限で実行。すると、以下のようなエラーが出てしまいました。</p>
 
 <pre><code>==== AUTHENTICATING FOR org.freedesktop.policykit.exec ===
 Authentication is needed to run `/usr/bin/apt-get' as the super user
@@ -90,18 +96,18 @@ polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freed
 
 </code></pre>
 
-<p>何度正しいパスワードを入力しても失敗、と出て先に進めません。
-色々解決法を探した結果、以下の情報に助けられました。</p>
+<p>何度正しいパスワードを入力しても失敗、と出て先に進めません。root権限でも駄目でした。
+色々解決法を探した結果、下記の情報に助けられました。</p>
 
 <p><a href="https://qiita.com/cielavenir/items/bad3a62583acc088be9e">https://qiita.com/cielavenir/items/bad3a62583acc088be9e</a></p>
 
-<p>よくわかっていないのですが、下記の通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。</p>
+<p>よくわかっていないのですが、ここに書いてある通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。</p>
 
 <pre><code>sudo apt-get -y install policykit-1-gnome
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;
 </code></pre>
 
-<p>ありがたや。</p>
+<p>ありがたやありがたや。</p>
 
 <p>ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</p>
 
