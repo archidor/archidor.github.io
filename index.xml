@@ -6,10 +6,28 @@
     <description>Recent content on zou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://archidor.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Antidote 10のインストール</title>
+      <link>https://archidor.github.io/posts/2019-06-03/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://archidor.github.io/posts/2019-06-03/</guid>
+      <description>書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、XDG_RUNTIME_DIRが設定されていない？なんだなんだそれは。んーとりあえず.bashrcにexportしてみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。
+パソコンは決して自由連想的に動かしてはいけないという教訓です。
+USB用の起動ディスクを持っていたおかげで、.bashrcの書き直しはスムーズにできましたが、その後もインストールはうまくいかず。 サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず。
+同じ境遇の人はいるかわかりませんが、インストール手順を備忘録がてら書いておきます。
+ Linux Debian 10 (4.19.0-5-amd64)  ずっと以下のようなエラーが出ていました。
+==== AUTHENTICATING FOR org.freedesktop.policykit.exec === Authentication is needed to run `/usr/bin/apt-get&#39; as the super user Authenticating as: root Password: polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie ==== AUTHENTICATION FAILED ===  何度正しいパスワードを入力しても失敗、と出て先に進めません。 色々解決法を探した結果、以下の情報に助けられました。
+https://qiita.com/cielavenir/items/bad3a62583acc088be9e
+よくわかっていないのですが、下記の通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。
+sudo apt-get -y install policykit-1-gnome /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;amp;  ありがたや。
+ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</description>
+    </item>
     
     <item>
       <title>登攀人生</title>

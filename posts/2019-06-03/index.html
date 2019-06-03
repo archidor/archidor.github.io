@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
-        <title>自分ツイッターをつくる</title>
+        <title>Antidote 10のインストール</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -60,81 +60,50 @@
 
 
 <section class="blog-post">
-    <h1>自分ツイッターをつくる</h1>
+    <h1>Antidote 10のインストール</h1>
     <div class="blog-post-subheader">
-        April 24, 2019
+        June 3, 2019
     </div>
 
     <div class="blog-post-content">
-        
+        <p>書けた書けた。よーし、これをネイティブチェックしてもらう前に、いったんAntidote（校閲ソフト）に見てもらおう。あ、そういえば、Antidote 10がリリースされていたから、アップデートしてみようかな。ダウンロード完了！インストーラ実行！あれ、エラーが出るな・・・。root認証失敗？じゃあsudoでどうだ。なになに、<code>XDG_RUNTIME_DIR</code>が設定されていない？なんだなんだそれは。んーとりあえず.bashrcにexportしてみよう。だめかー。あ、そういえば、最近Debianアップデートしていなかった。ついでにrebootもしておくか。あれ、ログインできなくなった・・・。</p>
 
-<p>昨日のスクリプトの使い途がよくわからなかったのですが、文字列追加していくことで簡易ツイッターにしてみました。
-このサイト上部の吹き出しを押すと疑似タイムラインがでてきます。</p>
+<p>パソコンは決して自由連想的に動かしてはいけないという教訓です。</p>
 
-<p>リツイートもリプライもいいねも、○○さんがいいねしました機能も、プロモーションツイートもブロック機能もありませんが、穏やかな気持ちでひっそりとつぶやくことができます。</p>
+<p>USB用の起動ディスクを持っていたおかげで、.bashrcの書き直しはスムーズにできましたが、その後もインストールはうまくいかず。
+サイトには「Ubuntuに対応」とあるので、なら当然Debianでもできるはず。</p>
+
+<p>同じ境遇の人はいるかわかりませんが、インストール手順を備忘録がてら書いておきます。</p>
 
 <ul>
-<li><p>使うもの</p>
-
-<ul>
-<li>yad（GUIダイアログ）</li>
-</ul></li>
-
-<li><p>実際の手順</p>
-
-<ol>
-<li>yadを呼び出す</li>
-<li>文字列を入力</li>
-<li>ファイル（<code>tweet.html</code>）に入力</li>
-<li>ひたすら追加される</li>
-</ol></li>
+<li>Linux Debian 10 (4.19.0-5-amd64)</li>
 </ul>
 
-<h4 id="やり方">やり方</h4>
+<p>ずっと以下のようなエラーが出ていました。</p>
 
-<h5 id="tweet-htmlを作る">tweet.htmlを作る</h5>
-
-<p>このサイトはhugoのテーマ&rdquo;elephants&rdquo;で動いているのですが、テーマがシンプルなあまり個別ページが用意されていません。
-そこで<code>tweet.html</code>に直接文字列を挟み込んで、<code>markdownify</code>でレンダリングしていくことにします。具体的な手順は以下の通り、</p>
-
-<ol>
-<li>テーマから<code>./layouts/partials/</code>に飛んで、<code>tweet.html</code>を作成</li>
-<li>空ファイルだと機能しないので、<code>tweet.html</code>の最初の1行目に<code>&lt;!-- 1st line --&gt;</code>などコメントアウトで適当な文字を入れておく</li>
-<li><code>header.html</code>に<code>{{ partial &quot;tweet.html&quot; | print | markdownify }}</code>の一行を追加</li>
-</ol>
-
-<h5 id="tweetyadを作る">tweetyadを作る</h5>
-
-<p>次に、シェルスクリプト<code>tweetyad</code>を作ります。<code>yad</code>のオプションは色々あるので<a href="https://sourceforge.net/p/yad-dialog/wiki/Examples/">こちら</a>を参照してください。</p>
-
-<pre><code class="language-sh">#!/bin/sh
-
-NOTES=$(yad --width=1500 --posy=24 --posx=250 --entry --entry-label=&quot;Tweet&quot; --no-buttons --close-on-unfocus)
-FILE=$HOME/[...]/tweet.html
-TIME=$(date &quot;+%Y-%m-%d %H:%M:%S&quot;)
-
-sed -i -e &quot;1i-\ $NOTES \($TIME\)&quot; $FILE
+<pre><code>==== AUTHENTICATING FOR org.freedesktop.policykit.exec ===
+Authentication is needed to run `/usr/bin/apt-get' as the super user
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie
+==== AUTHENTICATION FAILED ===
 
 </code></pre>
 
-<p>完成した<code>tweetyad</code>を<code>$HOME/.bin/</code>などパスの通ったディレクトリに置いて、<code>chmod +x</code>で権限を変更。ショートカットキーで<code>tweetyad</code>が実行されるように登録。
-i3wmを使っているのでconfigファイルに、</p>
+<p>何度正しいパスワードを入力しても失敗、と出て先に進めません。
+色々解決法を探した結果、以下の情報に助けられました。</p>
 
-<pre><code>bindsym $mod+period exec --no-startup-id &quot;~/.bin/tweetyad&quot;
+<p><a href="https://qiita.com/cielavenir/items/bad3a62583acc088be9e">https://qiita.com/cielavenir/items/bad3a62583acc088be9e</a></p>
+
+<p>よくわかっていないのですが、下記の通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。</p>
+
+<pre><code>sudo apt-get -y install policykit-1-gnome
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;
 </code></pre>
 
-<p>と記入して、Control+ピリオドでツイートができるようになりました。</p>
+<p>ありがたや。</p>
 
-<p>今回は文字列を先頭行に入れたいので、<code>&gt;&gt;</code>ではなく<code>sed</code>を使いました。<code>sed</code>を使えば、ツイ消しや修正も簡単にできます。日付や、リストを番号化するなどでツイートを絞り込むことでできますが、直接ファイルを入力した方が早いかもしれません。また、<code>yad</code>に入力された文字列を<code>case</code>で分岐させれば、ファイル編集、アップロード等の動作が一括でできます。</p>
-
-<h5 id="今後の課題">今後の課題</h5>
-
-<ul>
-<li>スマホ投稿</li>
-<li>画像・動画貼り付け</li>
-<li>リツイート機能（？）</li>
-<li>読み込み件数の制限</li>
-</ul>
+<p>ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</p>
 
     </div>
 </section>
