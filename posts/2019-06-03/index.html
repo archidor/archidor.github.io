@@ -33,6 +33,7 @@
            
 			
 		<ul>
+<li>あ <span class=timestamp>2019-06-16 08:16:52</span></li>
 <li>昨日のキーボード問題：xmodmapをやめてxkbで解決。/usr/share/X11/xkb/symbols/pcを書き換えるだけ。色んなやり方があるのとシステムファイルを書き換えるのに抵抗があったけれどこれで安心。 <span class=timestamp>2019-06-04 09:51:25</span></li>
 <li>就寝時間をはやめたいー！ <span class=timestamp>2019-06-03 22:39:08</span></li>
 <li>面倒くさいことを先に終わらせてから色んな遊びした方が楽しいということにいまさらながら気が付いた。 <span class=timestamp>2019-05-15 15:17:17</span></li>
@@ -53,7 +54,6 @@
 <li>ポール・ギャルドの『アクセント』の改訂版（2013年）を入手。フランス現代詩は韻律学よりもアクセントに注目した方がリズムがわかりやすいと思うのだが、どこから手をつければ良いのやら&hellip;。 <span class=timestamp>2019-04-24 14:58:17</span></li>
 <li>この象はCodepenで見つけたCSSのborderだけで作られている象なのですが、&rdquo;elephant&rdquo;と検索したら大量に出てきて、みんな象が好きなんだなぁと思いました。 <span class=timestamp>2019-04-24 14:22:46</span></li>
 </ul>
-
 		
     </div>
 </div>
@@ -111,6 +111,57 @@ polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freed
 <p>ありがたやありがたや。</p>
 
 <p>ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</p>
+
+<hr />
+
+<p>追記（2019/06/04）</p>
+
+<p>xmodmapをやめて、/usr/share/X11/xkb/symbols/pcを直接編集することで解決しました。
+あれこれ書き換えていくうちにわからなくなってしまいそうだったので、とりあえずメモ。</p>
+
+<pre><code>    key  &lt;TAB&gt; {	[ Tab,	ISO_Left_Tab	]	};
+    key &lt;RTRN&gt; {	[ Return		]	};
+
+    key &lt;CAPS&gt; {	[ Escape, Escape	]	};
+    key &lt;NMLK&gt; {	[ Num_Lock 		]	};
+
+    key &lt;LFSH&gt; {	[ Shift_L		]	};
+    key &lt;LALT&gt; {	[ Control_L		]	};
+    key &lt;RALT&gt; {	[ Zenkaku_Hankaku	]	};
+    key &lt;LCTL&gt; {	[ Super_L		]	};
+    key &lt;LWIN&gt; {	[ Hyper_L		]	};
+    key &lt;PRSC&gt; {	[ Multi_key		]	};
+
+    key &lt;RTSH&gt; {	[ Shift_R		]	};
+    key &lt;RCTL&gt; {	[ Control_R		]	};
+    key &lt;RWIN&gt; {	[ Super_R		]	};
+    key &lt;MENU&gt; {	[ Menu			]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { Shift_L, Shift_R };
+    modifier_map Lock   { Caps_Lock };
+    modifier_map Control{ Control_L, Control_R };
+    modifier_map Mod2   { Num_Lock };
+    modifier_map Mod3   { Hyper_L, Hyper_R };
+    modifier_map Mod4   { Super_L, Super_R };
+
+    // Fake keys for virtual&lt;-&gt;real modifiers mapping:
+    key &lt;LVL3&gt; {	[ ISO_Level3_Shift	]	};
+    key &lt;MDSW&gt; {	[ Mode_switch 		]	};
+    modifier_map Mod5   { &lt;LVL3&gt;, &lt;MDSW&gt; };
+
+    key &lt;ALT&gt;  {	[ Control_L, Control_L	]	};
+
+    key &lt;META&gt; {	[ NoSymbol, Meta_L	]	};
+    modifier_map Mod1   { &lt;META&gt; };
+
+    key &lt;SUPR&gt; {	[ NoSymbol, Super_L	]	};
+    modifier_map Mod4   { &lt;SUPR&gt; };
+
+    key &lt;HYPR&gt; {	[ NoSymbol, Hyper_L	]	};
+    modifier_map Mod4   { &lt;HYPR&gt; };
+    // End of modifier mappings.
+</code></pre>
 
     </div>
 </section>

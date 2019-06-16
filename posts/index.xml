@@ -26,7 +26,9 @@
 https://qiita.com/cielavenir/items/bad3a62583acc088be9e
 よくわかっていないのですが、ここに書いてある通り入力したら、それまでCUIで表示されていたパスワード要求画面がGUIに切り替わり、そこで入力したら今度はうまくいきました。
 sudo apt-get -y install policykit-1-gnome /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &amp;amp;  ありがたやありがたや。
-ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。</description>
+ところで前々からQt5でショートカットキー等が全く使えないし、.XComposeで設定したキー配列も無視されているみたいなので、いい加減、どうにかしなくてはなりません。使いにくいったらありゃしないので、今度挑戦してみようと思います。
+追記（2019/06/04）
+xmodmapをやめて、/usr/share/X11/xkb/symbols/pcを直接編集することで解決しました。 あれこれ書き換えていくうちにわからなくなってしまいそうだったので、とりあえずメモ。</description>
     </item>
     
     <item>
